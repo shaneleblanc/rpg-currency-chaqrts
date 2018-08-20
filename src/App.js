@@ -175,14 +175,13 @@ class App extends Component {
                 title={`Path of Exile Currency Rates in ${this.state.selectedLeague.label}`}
               />
               <BarChart
-                currency={this.state.currencyBelowOne}
+                data={this.state.currencyBelowOne}
                 removeBar={(name) => this.removeBarItem(name)}
-                scaleValue={1}
                 exaltPrice={this.state.exaltPrice}
               />
               <div>Currency Above 1 Chaos</div>
               <BarChart
-                currency={this.state.currencyAboveOne}
+                data={this.state.currencyAboveOne}
                 removeBar={(name) => this.removeBarItem(name)}
                 scaleValue={this.state.scaleValue}
                 exaltPrice={this.state.exaltPrice}

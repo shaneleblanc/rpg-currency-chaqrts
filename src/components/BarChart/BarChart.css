@@ -45,6 +45,10 @@ button {
 }
 
 .BarGraph-bar {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    overflow: hidden;
     font-family: "Fontin SmallCaps";
     font-weight: normal;
     font-style: normal;
@@ -59,6 +63,10 @@ button {
     z-index: 1;
 }
 .BarGraph-bar-small {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    overflow: hidden;
     font-family: "Fontin SmallCaps";
     font-weight: normal;
     font-style: normal;
@@ -103,17 +111,19 @@ button {
     position: relative;
     left: 0;
     width: 200px;
+    height: 200px;
     z-index: 10;
     transition: width 0s;
+    transition: height 1s;
     transform: translate3d(0px, 0px, 0px);
 }
 .BarGraph-bar-small:hover {
+    display: block;
     filter: brightness(1.25);
     position: relative;
     left: 0;
     width: 200px;
-    height: +100px;
+    height: 300px;
     z-index: 10;
-    transition: width 0s;
-    transform: translate3d(0px, 0px, 0px);
+    transition: height 0.5s ease-out;
 }
