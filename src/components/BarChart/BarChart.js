@@ -19,16 +19,16 @@ class BarChart extends React.Component {
 
 
     render() {
-        let scaleValue = Math.max(...this.props.data.map(item => (1 / item.worth)));
+        let scaleValue = Math.max(...this.props.data.map(item =>  item.worth));
         console.log(scaleValue)
         return (
           <div>
               <div className="BarGraph" id="chart">
                   {this.props.data.map(item =>
 
-                    (<div className={this.scaleRange((1 / item.worth), scaleValue) > 5 ? ("BarGraph-bar") : ("BarGraph-bar-small")}
+                    (<div className={this.scaleRange(item.worth, scaleValue) > 5 ? ("BarGraph-bar") : ("BarGraph-bar-small")}
                           key={item.name}
-                          style={{height: this.scaleRange((1 / item.worth), scaleValue)+'%'}}>
+                          style={{height: this.scaleRange(item.worth, scaleValue)+'%'}}>
                           <div className="BarGraph-bar-title">{item.name} <br/>
                               {item.worth}:1c <br/>
                               <img src={item.icon} alt={item.name}/>

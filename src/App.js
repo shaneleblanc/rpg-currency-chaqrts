@@ -47,7 +47,7 @@ class App extends Component {
           .then(() => {
               this.parseData(result);
 
-              console.log('We have data:', this.state.currencyBelowOne);
+              console.log('We have data:', JSON.stringify(this.state.currencyBelowOne));
           })
           .then(() => {
               this.render();
@@ -78,21 +78,13 @@ class App extends Component {
             if(item.chaosEquivalent > 1) {
                 overOneChaos.push({
                     name: item.currencyTypeName,
-                    chaosEquivalent: item.chaosEquivalent,
-                    worth: worth,
-                    nearestWholeTrade0: nearestTrade[0],
-                    nearestWholeTrade1: nearestTrade[1],
-                    height: this.scaleRange(item.chaosEquivalent, this.state.scaleValue) + '%',
+                    worth: item.chaosEquivalent,
                     icon: data.currencyDetails[data.currencyDetails.findIndex(currency => currency.name === item.currencyTypeName)].icon
                 })
             } else {
                 belowOneChaos.push({
                     name: item.currencyTypeName,
-                    chaosEquivalent: item.chaosEquivalent,
-                    worth: worth,
-                    nearestWholeTrade0: nearestTrade[0],
-                    nearestWholeTrade1: nearestTrade[1],
-                    height: this.scaleRange(item.chaosEquivalent, 1) + '%',
+                    worth: item.chaosEquivalent,
                     icon: data.currencyDetails[data.currencyDetails.findIndex(currency => currency.name === item.currencyTypeName)].icon
                 })
             }
@@ -164,6 +156,7 @@ class App extends Component {
     componentDidMount() {
         this.updateLeagues();
         this.updateData();
+
     }
 
     render() {
